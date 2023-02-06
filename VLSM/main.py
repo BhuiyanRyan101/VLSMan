@@ -1,1 +1,0 @@
-print("Welcome To VLSMan 1.0");

@@ -1,23 +1,21 @@
+import sys
+import time
 print("Welcome To VLSMan 1.0")
 print("/////////////////////")
 
 hosts = int(input("Please enter number of hosts needed: \n"))
 n=0
-while (pow(2,n)-2) <= hosts:
+while (pow(2,n)-2) < hosts:
   n += 1
-  print(n)
+
+subnets = ["255.255.255.255", "255.255.255.254", "255.255.255.252"]
 
 if(n==1):
   print("Subnetting Error")
+  sys.exit()
 
-if(n==2):
-  print("Reccomended Subnet: 255.255.255.252")
+print("Reccomended Subnet is: " + hosts[n])
 
-if(n==3):
-  print("Reccomended Subnet: 255.255.255.248")
-
-if(n==4):
-  print("Reccomended Subnet: 255.255.255.240")
-
-if(n==5):
-  print("Reccomended Subnet: 255.255.255.224")
+time.sleep(10)
+input("Press any key to quit.")
+sys.exit()

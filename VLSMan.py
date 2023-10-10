@@ -1,5 +1,5 @@
 #Start the program
-import time
+#import time
 print("Welcome To VLSMan 1.2")
 print("////////////////////////////////////////////////////////////")
 

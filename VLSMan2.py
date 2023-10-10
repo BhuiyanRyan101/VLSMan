@@ -1,5 +1,5 @@
 #Begin Program
-
+subnets = ['255.255.255.255', '255.255.255.252']
 #Initalization Complete
 print("System Initalized, Welcome To VLSMan 2.1")
 print("////////////////////////////////////////////////////////////")
@@ -11,6 +11,12 @@ while True:
     hostsNeeded = int(input("Enter a numerical value below:\n"))
 
     #LOGIC ENGINE ----------------
-    print("Value was " + str(hostsNeeded))
+    n=0
+    while (pow(2,n) - 2) <= hostsNeeded:
+        print(n)
+        n = n + 1
+    hostBitsNeeded = n
+
+    print("Value was " + str(n))
 
     continue

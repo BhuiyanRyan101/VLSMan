@@ -8,26 +8,22 @@ while True:
 
   hosts = int(input("\nPlease enter number of hosts needed:\n"))
   ogIP = (input("\nPlease enter IP address in X.X.X.X format\n"))
-
+  ogIP = ogIP + "."
   n=0
   while (pow(2,n)-2) < hosts:
     n += 1
 
   #Octet Values
-  octet = ogIP.split(".")
-  sigOctet = 0
-  
-  if(hosts <= 8):
-    sigOctet = 2
-  if(hosts <= 16):
-    sigOctet = 2
-  if(hosts <= 24):
-    sigOctet = 1
-  if(hosts <= 32):
-    sigOctet = 0
+  firstOctet = ""
+  secondOctet = ""
+  thirdOctet = ""
+  fourthOctet = ""
 
-  print(octet[sigOctet])
+  for l in ogIP:
+    while l == ".":
+      firstOctet = firstOctet + l
 
+  print(firstOctet + "W")
   #Array lists of subnets /32 to /16
   subnets = ["255.255.255.255", "255.255.255.254", "255.255.255.252","255.255.255.248","255.255.255.240","255.255.255.224","255.255.255.192","255.255.255.128","255.255.255.0","255.255.254.0","255.255.252.0","255.255.248.0","255.255.240.0","255.255.224.0","255.255.192.0","255.255.128.0","255.255.0.0"]
 

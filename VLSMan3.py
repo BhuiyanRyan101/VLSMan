@@ -1,7 +1,7 @@
 #Begin Program and Define Variables
-subnets = ["255.255.255.255", "255.255.255.254", "255.255.255.252","255.255.255.248","255.255.255.240","255.255.255.224","255.255.255.192","255.255.255.128","255.255.255.0","255.255.254.0","255.255.252.0","255.255.248.0","255.255.240.0","255.255.224.0","255.255.192.0","255.255.128.0","255.255.0.0"]
+subnets = ["255.255.255.255", "255.255.255.254", "255.255.255.252","255.255.255.248","255.255.255.240","255.255.255.224","255.255.255.192","255.255.255.128","255.255.255.0","255.255.254.0","255.255.252.0","255.255.248.0","255.255.240.0","255.255.224.0","255.255.192.0","255.255.128.0","255.255.0.0","255.254.0.0","255.252.0.0","255.248.0.0","255.240.0.0","255.224.0.0","255.192.0.0","255.128.0.0","255.0.0.0"]
 #Initalization Complete
-print("System Initalized, Welcome To VLSMan 3.1")
+print("System Initalized, Welcome To VLSMan 3.2")
 print("////////////////////////////////////////////////////////////")
 
 #Main Code, will keep running until break.
@@ -10,6 +10,11 @@ while True:
     #Program needs to take input from user: hostsNeeded; networkAddress.
     hostsNeeded = int(input("\nEnter the amount of hosts needed: "))
     networkAddress = str(input("\nEnter the network address you wish to start from: "))
+
+    #ErrorDetection
+    if int(networkAddress[-1]) % 2 != 0:
+        print("\nThe specified network address is not a network address! Please try again!\n")
+        continue
 
     #Calculate number of host bits needed.
     bitsNeeded = 0
@@ -75,6 +80,7 @@ while True:
     #print("Network Matrixes: " + str(networkAddressMatrix))
     #print("Subnet Matrixes: " + str(subnetMaskMatrix))
     #print("Use subnet: " + subnetMask)
+    #print(int(networkAddress[-1]) % 2)
 
     #Production Printer
     print("\nResults:")

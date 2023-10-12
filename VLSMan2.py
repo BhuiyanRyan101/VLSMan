@@ -1,5 +1,5 @@
-#Begin Program
-subnets = ['255.255.255.255', '255.255.255.252']
+#Begin Program and Define Variables
+subnets = ["255.255.255.255", "255.255.255.254", "255.255.255.252","255.255.255.248","255.255.255.240","255.255.255.224","255.255.255.192","255.255.255.128","255.255.255.0","255.255.254.0","255.255.252.0","255.255.248.0","255.255.240.0","255.255.224.0","255.255.192.0","255.255.128.0","255.255.0.0"]
 #Initalization Complete
 print("System Initalized, Welcome To VLSMan 2.1")
 print("////////////////////////////////////////////////////////////")
@@ -8,15 +8,20 @@ print("////////////////////////////////////////////////////////////")
 while True:
 
     #Program needs to take input from user: HostsNeeded;
-    hostsNeeded = int(input("Enter a numerical value below:\n"))
+    hostsNeeded = int(input("\nEnter the amount of hosts needed: "))
 
-    #LOGIC ENGINE ----------------
-    n=0
-    while (pow(2,n) - 2) <= hostsNeeded:
-        print(n)
-        n = n + 1
-    hostBitsNeeded = n
+    #Calculate number of host bits needed
+    bitsNeeded = 0
+    while True:
+        usableHosts = pow(2,bitsNeeded) - 2
+        if usableHosts >= hostsNeeded or hostsNeeded == 0:
+            break
+        bitsNeeded += 1
+    #print(str(bitsNeeded) + " Bits need to be stolen") #debugging
 
-    print("Value was " + str(n))
+    #Determine subnet to use
+    print("Use subnet: " + subnets[bitsNeeded])
 
-    continue
+    continue #Keep looping program.
+
+#Made by Ryan Bhuiyan
